@@ -8,6 +8,7 @@ noinst_PROGRAMS = \
 	random-test-client \
 	unit-test-server \
 	unit-test-client \
+	rtutcp-client \
 	version
 
 common_ldflags = \
@@ -36,6 +37,9 @@ unit_test_client_LDADD = $(common_ldflags)
 
 version_SOURCES = version.c
 version_LDADD = $(common_ldflags)
+
+rtutcp_client_SOURCES = rtutcp-client.c
+rtutcp_client_LDADD = $(common_ldflags)
 
 AM_CPPFLAGS = -I$(top_srcdir) -I$(top_srcdir)/src
 CLEANFILES = *~
