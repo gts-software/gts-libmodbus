@@ -31,11 +31,9 @@
 #include <termios.h>
 #endif
 
-#define _MODBUS_RTU_HEADER_LENGTH      1
 #define _MODBUS_RTU_PRESET_REQ_LENGTH  6
 #define _MODBUS_RTU_PRESET_RSP_LENGTH  2
 
-#define _MODBUS_RTU_CHECKSUM_LENGTH    2
 
 #if defined(_WIN32)
 #define ENOTSUP WSAEOPNOTSUPP

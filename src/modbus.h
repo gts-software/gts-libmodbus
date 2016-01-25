@@ -84,6 +84,10 @@ MODBUS_BEGIN_DECLS
 /* Random number to avoid errno conflicts */
 #define MODBUS_ENOBASE 112345678
 
+#define MODBUS_RTU_MAX_ADU_LENGTH  256
+#define _MODBUS_RTU_CHECKSUM_LENGTH    2
+#define _MODBUS_RTU_HEADER_LENGTH      1
+
 /* Protocol exceptions */
 enum {
     MODBUS_EXCEPTION_ILLEGAL_FUNCTION = 0x01,
