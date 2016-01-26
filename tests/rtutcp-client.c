@@ -9,10 +9,14 @@
 
 int main(int argc, char** argv)
 {
-	if(argc <= 1) {
-        fprintf(stderr, "Usage: %s <ip> <port>\n", argv[0]);
+	if(argc < 4) {
+        fprintf(stderr, "Usage: %s <ip> <port> <addr>\n", argv[0]);
         return -1;
 	}
+
+	printf("IP: %s\n", argv[1]);
+	printf("Port: %d\n", atoi(argv[2]));
+	printf("Address: %d\n", atoi(argv[3]));
 
     /* Connect */
     modbus_t *ctx;
@@ -25,6 +29,20 @@ int main(int argc, char** argv)
                 modbus_strerror(errno));
         modbus_free(ctx);
         return -1;
+    }
+
+    /* Read */
+    int addr = atoi(argv[3]);
+    uint16_t val = 0;
+    int rc = modbus_read_registers(ctx, addr, 1, &val);
+    if (rc != 1) {
+        fprintf(stderr, "ERROR modbus_read_registers (%d)\n", rc);
+        fprintf(stderr, "Address = %d\n", addr);
+    }
+    else {
+    	printf("SUCCESS modbus_read_registers\n");
+    	printf("Address = %d\n", addr);
+    	printf("Value = %d\n", val);
     }
 
     /* Close the connection */
