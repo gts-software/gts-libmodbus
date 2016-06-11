@@ -27,7 +27,7 @@ QNX and Windows.
 Installation
 ------------
 
-The shell commands are ``./autogen.sh; ./configure; make; make install``.
+The shell commands are ``./autogen.sh; ./configure; make; make install`` for dynamic builds or ``./autogen.sh; ./configure LDFLAGS="-static"; make; make install`` for static builds.
 
 If you want to compile with Microsoft Visual Studio, you need to install
 http://code.google.com/p/msinttypes/ to fill the absence of stdint.h.
